@@ -17,7 +17,7 @@ promotionRouter
   })
   .post((req, res, next) => {
     Promotion.create(req.body)
-      .then((promotions) => {
+      .then((promotion) => {
         console.log("Promotion Created ", promotion);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
@@ -73,10 +73,10 @@ promotionRouter
   })
   .delete((req, res, next) => {
     Promotion.findByIdAndDelete(req.params.promotionId)
-      .then((response) => {
+      .then((promotion) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.json(response);
+        res.json(promotion);
       })
       .catch((err) => next(err));
   });

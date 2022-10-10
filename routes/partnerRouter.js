@@ -31,10 +31,10 @@ partnerRouter
   })
   .delete((req, res, next) => {
     Partner.deleteMany()
-      .then((response) => {
+      .then((partner) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.json(response);
+        res.json(partner);
       })
       .catch((err) => next(err));
   });
@@ -73,10 +73,10 @@ partnerRouter
   })
   .delete((req, res, next) => {
     Partner.findByIdAndDelete(req.params.partnerId)
-      .then((response) => {
+      .then((partner) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.json(response);
+        res.json(partner);
       })
       .catch((err) => next(err));
   });
